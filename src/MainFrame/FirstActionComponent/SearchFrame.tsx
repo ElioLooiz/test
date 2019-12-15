@@ -1,6 +1,16 @@
-import React, {PureComponent} from 'react'
+import * as React from "react";
 
-class SearchFrame extends PureComponent {
+type MyProps = {
+  onChangeModel: any;   //трудности с подбором нужных типов для методов родительского класса
+  onChangeYear: any;
+  onSubmit: any;
+  onClick: any;
+  valueModel: string;
+  valueYear: string;
+};
+type MyState = {};
+
+export class SearchFrame extends React.Component<MyProps,MyState> {
 
     render() {
       return (
@@ -21,5 +31,3 @@ class SearchFrame extends PureComponent {
       );
     }
 }
-
-export default SearchFrame

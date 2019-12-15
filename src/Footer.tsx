@@ -1,6 +1,8 @@
-import React, {Component} from 'react'
+import * as React from "react";
 
-class Footer extends Component {
+export interface Footer { }
+
+export class Footer extends React.Component {
 
 render() {
     return (
@@ -12,5 +14,3 @@ render() {
     )
   }
 }
-
-export default Footer

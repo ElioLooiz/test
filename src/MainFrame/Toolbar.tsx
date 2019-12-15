@@ -1,6 +1,11 @@
-import React, {Component} from 'react'
+import * as React from "react";
 
-class Toolbar extends Component {
+
+type MyProps = {onClick: any};
+type MyState = {};
+
+
+export class Toolbar extends React.Component<MyProps, MyState> {
 
 render() {
     return (
@@ -12,5 +17,3 @@ render() {
     )
   }
 }
-
-export default Toolbar

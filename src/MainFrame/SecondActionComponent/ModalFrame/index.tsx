@@ -1,6 +1,21 @@
-import React, {Component} from 'react'
+import * as React from "react";
 
-class ModalFrame extends Component {
+
+type MyProps = {
+  key: string;
+  task: string;
+  desc: string;
+  index: number;
+  targeted: boolean;
+  onClick: any;
+};
+type MyState = {
+
+};
+
+
+
+export class ModalFrame extends React.Component<MyProps,MyState> {
 
 render() {
     return (
@@ -11,5 +26,3 @@ render() {
     </div>
     )}
 }
-
-export default ModalFrame

@@ -1,6 +1,9 @@
-import React, {Component} from 'react'
+import * as React from "react";
 
-class Header extends Component {
+export interface Header { }
+
+
+export class Header extends React.Component {
 
 render() {
     return (
@@ -15,6 +18,3 @@ render() {
     )
   }
 }
-
-
-export default Header

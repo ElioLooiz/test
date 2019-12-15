@@ -1,11 +1,27 @@
-import React, {Component} from 'react'
-import SearchFrame from './SearchFrame'
-import ResultFrame from './ResultFrame'
+import * as React from "react";
+import {SearchFrame} from './SearchFrame'
+import {ResultFrame} from './ResultFrame'
 
 
-class FirstActionComponent extends Component {
 
-  constructor(props) {
+type MyProps = {};
+type MyState = {
+  valueModel: string;
+  valueYear: string;
+  isTableVisible: boolean;
+  searchModel: string;
+  searchYear: string;
+  isModal: boolean;
+};
+
+
+
+
+
+
+export class FirstActionComponent extends React.Component<MyProps,MyState> {
+
+  constructor(props: any) {
       super(props);
       this.state = {
         valueModel: 'c-class',
@@ -21,15 +37,15 @@ class FirstActionComponent extends Component {
     }
 
 
-    handleChangeModel(event) {
+    handleChangeModel(event: any) {
       this.setState({valueModel: event.target.value});
     }
 
-    handleChangeYear(event) {
+    handleChangeYear(event: any) {
       this.setState({valueYear: event.target.value});
     }
 
-    handleSubmit(event) {
+    handleSubmit(event: any) {
       this.setState({
         isTableVisible: true,
         searchModel: this.state.valueModel,
@@ -48,7 +64,7 @@ class FirstActionComponent extends Component {
       }
 
 
-      showModal(open) {
+      showModal(open: boolean) {
         if(open) {
           this.setState({
             isTableVisible: false,
@@ -69,9 +85,9 @@ render() {
       <div className="row text-white">
         <div className="col-md-3" style={{height: '400px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
           <SearchFrame
-            onChangeModel={(event) => this.handleChangeModel(event)}
-            onChangeYear={(event) => this.handleChangeYear(event)}
-            onSubmit={(event) => this.handleSubmit(event)}
+            onChangeModel={(event: any) => this.handleChangeModel(event)}
+            onChangeYear={(event: any) => this.handleChangeYear(event)}
+            onSubmit={(event: any) => this.handleSubmit(event)}
             onClick={() => this.handleClick()}
             valueModel={this.state.valueModel}
             valueYear={this.state.valueYear}
@@ -82,7 +98,7 @@ render() {
             isTableVisible = {this.state.isTableVisible}
             valueModel={this.state.searchModel}
             valueYear={this.state.searchYear}
-            showModal={(open) => this.showModal(open)}
+            showModal={(open: boolean) => this.showModal(open)}
             isModal={this.state.isModal}
           />
         </div>
@@ -90,6 +106,3 @@ render() {
     )
   }
 }
-
-
-export default FirstActionComponent

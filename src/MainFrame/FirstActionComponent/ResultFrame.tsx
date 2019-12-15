@@ -1,10 +1,28 @@
-import React, {Component} from 'react'
-import TableItem from './TableItem'
-import ModalFrame from './ModalFrame'
+import * as React from "react";
+import {TableItem} from './TableItem'
+import {ModalFrame} from './ModalFrame'
 
-class ResultFrame extends Component {
 
-  constructor(props) {
+type MyProps = {
+  isTableVisible: boolean;
+  valueModel: string;
+  valueYear: string;
+  showModal: any;
+  isModal: boolean;
+};
+type MyState = {
+  data: any[];
+  isLoading: boolean;
+  targetRow: number;
+  numRows: number;
+  isModal: boolean;
+  modalIndex: number;
+};
+
+
+export class ResultFrame extends React.Component<MyProps,MyState> {
+
+  constructor(props: any) {
     super(props)
 
     this.state = {
@@ -69,8 +87,8 @@ this.handleKeys = this.handleKeys.bind(this);
           index={item.index}
           id={id}
           targeted={this.state.targetRow === id}
-          onClick={(i) => this.handleClick(i)}
-          onKeyDown={(event, id) => this.handleKeys(event, id)}
+          onClick={(i: number) => this.handleClick(i)}
+          onKeyDown={(event: any, id: number) => this.handleKeys(event, id)}
           />
         }
       })
@@ -106,7 +124,7 @@ this.handleKeys = this.handleKeys.bind(this);
  }
 
 render() {
-    let table = ''
+    let table: any;
     if(this.props.isTableVisible) {
         table = (
         <table className="table table-hover table-dark w-100 overflow-auto">
@@ -136,7 +154,7 @@ render() {
       </div>
     )}
 
-    handleClick(i) {
+    handleClick(i: number) {
         this.setState({targetRow: i});
       }
 
@@ -147,7 +165,7 @@ render() {
       })
     }
 
-    handleKeys(event, id) {
+    handleKeys(event: any, id: number) {
       if(event.keyCode === 40) {
         if(this.state.targetRow + 1 === this.state.numRows) {
           this.setState({targetRow: this.state.numRows});
@@ -172,5 +190,3 @@ render() {
       }
     }
 }
-
-export default ResultFrame

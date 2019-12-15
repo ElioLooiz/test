@@ -1,10 +1,18 @@
-import React, {Component} from 'react'
-import Toolbar from './Toolbar'
-import WorkZone from './WorkZone'
+import * as React from "react";
+import {Toolbar} from './Toolbar'
+import {WorkZone} from './WorkZone'
 
-class MainFrame extends Component {
 
-  constructor(props) {
+
+export interface MainFrameProps { buttons: boolean[]; }
+
+
+type MyProps = {};
+type MyState = { buttons: boolean[]; };
+
+export class MainFrame extends React.Component<MyProps, MyState> {
+
+  constructor(props: any) {
     super(props)
 
     this.state = {
@@ -18,7 +26,7 @@ render() {
     <div className="row" style={{ height: '400px'}}>
         <div className="col-md-2 bg-light" style={{height: '400px'}}>
             <Toolbar
-            onClick={(i) => this.handleClick(i)}
+            onClick={(i: number) => this.handleClick(i)}
             ></Toolbar>
         </div>
         <div className="col-md-10" style={{ height: '400px'}}>
@@ -27,8 +35,8 @@ render() {
     </div>
   )}
 
-  handleClick(i) {
-      let buttons = this.state.buttons.slice();
+  handleClick(i: number) {
+      let buttons: boolean[] = this.state.buttons.slice();
       if(buttons[i] !== !buttons[i]) {
         buttons =  Array(3).fill(false)
       }
@@ -37,5 +45,3 @@ render() {
       console.log(buttons, '---' ,i);
     }
   }
-
-export default MainFrame
