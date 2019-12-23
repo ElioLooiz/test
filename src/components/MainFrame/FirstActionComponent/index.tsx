@@ -2,9 +2,6 @@ import * as React from "react";
 import {SearchFrame} from './SearchFrame'
 import {ResultFrame} from './ResultFrame'
 
-
-
-type MyProps = {};
 type MyState = {
   valueModel: string;
   valueYear: string;
@@ -14,12 +11,7 @@ type MyState = {
   isModal: boolean;
 };
 
-
-
-
-
-
-export class FirstActionComponent extends React.Component<MyProps,MyState> {
+export class FirstActionComponent extends React.Component<{},MyState> {
 
   constructor(props: any) {
       super(props);
@@ -35,7 +27,6 @@ export class FirstActionComponent extends React.Component<MyProps,MyState> {
       this.handleChangeYear = this.handleChangeYear.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
-
 
     handleChangeModel(event: any) {
       this.setState({valueModel: event.target.value});
@@ -63,22 +54,19 @@ export class FirstActionComponent extends React.Component<MyProps,MyState> {
         })
       }
 
-
-      showModal(open: boolean) {
-        if(open) {
-          this.setState({
-            isTableVisible: false,
-            isModal: true,
-          })
-        } else {
-          this.setState({
-            isTableVisible: true,
-            isModal: false,
-          })
-        }
-
-
+    showModal(open: boolean) {
+      if(open) {
+        this.setState({
+          isTableVisible: false,
+          isModal: true,
+        })
+      } else {
+        this.setState({
+          isTableVisible: true,
+          isModal: false,
+        })
       }
+    }
 
 render() {
     return (

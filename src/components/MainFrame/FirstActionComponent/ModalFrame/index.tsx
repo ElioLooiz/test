@@ -1,6 +1,5 @@
 import * as React from "react";
 
-
 type MyProps = {
   key: string;
   model: string;
@@ -11,10 +10,8 @@ type MyProps = {
   targeted: boolean;
   onClick: any;
 };
-type MyState = {};
 
-
-export class ModalFrame extends React.Component<MyProps,MyState> {
+export class ModalFrame extends React.Component<MyProps,{}> {
 
 render() {
     return (

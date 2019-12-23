@@ -1,9 +1,7 @@
 import * as React from "react";
 
-
 type MyProps = {onClick: any};
 type MyState = {};
-
 
 export class Toolbar extends React.Component<MyProps, MyState> {
 

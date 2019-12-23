@@ -2,7 +2,6 @@ import * as React from "react";
 
 export interface Header { }
 
-
 export class Header extends React.Component {
 
 render() {

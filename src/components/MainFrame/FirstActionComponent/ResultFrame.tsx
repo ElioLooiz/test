@@ -96,32 +96,32 @@ this.handleKeys = this.handleKeys.bind(this);
   }
 
   renderModal() {
-   const { data, isLoading } = this.state
-   const filteredData = data.filter(item => {
-     if(this.state.modalIndex !== item.index) {
-       return false
-     }
-     else {
-       return true
-     }
-   })
-   if (isLoading) {
-     return <img src='/i/preloader.gif' alt='загружаю...' />
-   } else {
-     return filteredData.map(item => {
-         return <ModalFrame
-         key={item._id}
-         model={item.model}
-         year={item.year}
-         conf={item.conf}
-         modelBody={item.modelBody}
-         index={item.index}
-         targeted={this.state.targetRow === item.index}
-         onClick={() => this.closeModalClick()}
-         />
-     })
-   }
- }
+       const { data, isLoading } = this.state
+       const filteredData = data.filter(item => {
+         if(this.state.modalIndex !== item.index) {
+           return false
+         }
+         else {
+           return true
+         }
+       })
+       if (isLoading) {
+         return <img src='/i/preloader.gif' alt='загружаю...' />
+       } else {
+         return filteredData.map(item => {
+             return <ModalFrame
+             key={item._id}
+             model={item.model}
+             year={item.year}
+             conf={item.conf}
+             modelBody={item.modelBody}
+             index={item.index}
+             targeted={this.state.targetRow === item.index}
+             onClick={() => this.closeModalClick()}
+             />
+         })
+       }
+    }
 
 render() {
     let table: any;

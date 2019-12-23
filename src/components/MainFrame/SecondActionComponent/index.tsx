@@ -1,9 +1,6 @@
 import * as React from "react";
 import {TaskList} from './TaskList'
 
-
-type MyProps = {
-};
 type MyState = {
   isTableVisible: boolean;
   searchModel: string;
@@ -11,8 +8,7 @@ type MyState = {
   isModal: boolean;
 };
 
-
-export class SecondActionComponent extends React.Component<MyProps,MyState> {
+export class SecondActionComponent extends React.Component<{},MyState> {
 
   constructor(props: any) {
       super(props);
@@ -24,22 +20,22 @@ export class SecondActionComponent extends React.Component<MyProps,MyState> {
       };
     }
 
-      showModal(open: boolean) {
-        if(open) {
-          this.setState({
-            isTableVisible: false,
-            isModal: true,
-          })
-        } else {
-          this.setState({
-            isTableVisible: true,
-            isModal: false,
-          })
-        }
-      }
+  showModal(open: boolean) {
+    if(open) {
+      this.setState({
+        isTableVisible: false,
+        isModal: true,
+      })
+    } else {
+      this.setState({
+        isTableVisible: true,
+        isModal: false,
+      })
+    }
+  }
 
-render() {
-    return (
+  render() {
+      return (
       <div className="row text-white">
           <div className="col-md-12 overflow-auto" style={{ height: '400px', cursor: 'pointer'}}>
             <TaskList

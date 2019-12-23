@@ -1,11 +1,10 @@
 import * as React from "react";
 import {FirstActionComponent} from './FirstActionComponent'
 import {SecondActionComponent} from './SecondActionComponent'
-
+import {ThirdActionComponent} from './ThirdActionComponent'
 
 type MyProps = { buttons: boolean[]; };
 type MyState = { buttons: boolean[]; };
-
 
 export class WorkZone extends React.Component<MyProps,MyState> {
 
@@ -19,10 +18,10 @@ render() {
   if(componentToRender[1]) {
      renderComponent = <div><SecondActionComponent/></div>
    }
-  //
-  // if(componentToRender[2]) {
-  //   renderComponent = <div>3 component</div>
-  // }
+
+   if(componentToRender[2]) {
+     renderComponent = <div><ThirdActionComponent/></div>
+   }
 
   return (
     <div>{renderComponent}</div>

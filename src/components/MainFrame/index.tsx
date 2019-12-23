@@ -2,10 +2,7 @@ import * as React from "react";
 import {Toolbar} from './Toolbar'
 import {WorkZone} from './WorkZone'
 
-
-
 export interface MainFrameProps { buttons: boolean[]; }
-
 
 type MyProps = {};
 type MyState = { buttons: boolean[]; };

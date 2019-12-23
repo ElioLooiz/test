@@ -8,9 +8,14 @@ type MyProps = {
   valueModel: string;
   valueYear: string;
 };
-type MyState = {};
 
-export class SearchFrame extends React.Component<MyProps,MyState> {
+export class SearchFrame extends React.Component<MyProps,{}> {
+
+  divRef: any = React.createRef();
+
+  componentDidMount() {
+          if (this.divRef.current) { this.divRef.current.focus(); }
+        }
 
     render() {
       return (
@@ -18,7 +23,7 @@ export class SearchFrame extends React.Component<MyProps,MyState> {
           <form onSubmit={this.props.onSubmit} >
             <label>
               <p className="">Введите модель:</p>
-              <input className="form-control" type="text" value={this.props.valueModel} onChange={this.props.onChangeModel} />
+              <input ref={this.divRef} className="form-control" type="text" value={this.props.valueModel} onChange={this.props.onChangeModel} />
             </label>
             <label>
               <p className="">Введите год выпуска:</p>
