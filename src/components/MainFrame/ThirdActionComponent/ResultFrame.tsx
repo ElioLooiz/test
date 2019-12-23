@@ -19,6 +19,7 @@ export class ResultFrame extends React.Component<MyProps,MyState> {
     }
   }
 
+
   componentDidUpdate(prevProps: any) {
      const xhr = new XMLHttpRequest()
      xhr.open('GET', '../files.json', true)
