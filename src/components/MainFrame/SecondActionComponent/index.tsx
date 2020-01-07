@@ -36,14 +36,12 @@ export class SecondActionComponent extends React.Component<{},MyState> {
 
   render() {
       return (
-      <div className="row text-white">
-          <div className="col-md-12 overflow-auto" style={{ height: '400px', cursor: 'pointer'}}>
+      <div className="result-frame-sec">
             <TaskList
               isTableVisible = {this.state.isTableVisible}
               showModal={(open: boolean) => this.showModal(open)}
               isModal={this.state.isModal}
             />
-          </div>
       </div>
     )
   }

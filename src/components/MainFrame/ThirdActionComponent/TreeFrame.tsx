@@ -81,8 +81,8 @@ export class TreeFrame extends React.Component<MyProps,MyState> {
 
     render() {
       return (
-        <div className="row text-white" >
-            <div className="col-md-12 overflow-auto" style={{ height: '400px', cursor: 'pointer'}} >
+        <div>
+            <div>
               {this.renderProducts()}
             </div>
         </div>

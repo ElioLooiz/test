@@ -1,6 +1,11 @@
 import * as React from "react";
 import {Toolbar} from './Toolbar'
 import {WorkZone} from './WorkZone'
+import {Router} from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+
+const history: any = createBrowserHistory();
+
 
 export interface MainFrameProps { buttons: boolean[]; }
 
@@ -19,17 +24,18 @@ export class MainFrame extends React.Component<MyProps, MyState> {
 
 render() {
   return  (
-
-    <div className="row" style={{ height: '400px'}}>
-        <div className="col-md-2 bg-light" style={{height: '400px'}}>
+  <Router history={history}>
+    <div className="main-frame">
+        <div className="toolbar">
             <Toolbar
             onClick={(i: number) => this.handleClick(i)}
             ></Toolbar>
         </div>
-        <div className="col-md-10" style={{ height: '400px'}}>
+        <div className="workzone">
             <WorkZone buttons={this.state.buttons}></WorkZone>
         </div>
     </div>
+  </Router>
   )}
 
   handleClick(i: number) {

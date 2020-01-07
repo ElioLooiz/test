@@ -70,8 +70,8 @@ export class FirstActionComponent extends React.Component<{},MyState> {
 
 render() {
     return (
-      <div className="row text-white">
-        <div className="col-md-3" style={{height: '400px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+      <div className="fa-container">
+        <div className="search-frame">
           <SearchFrame
             onChangeModel={(event: any) => this.handleChangeModel(event)}
             onChangeYear={(event: any) => this.handleChangeYear(event)}
@@ -80,8 +80,8 @@ render() {
             valueModel={this.state.valueModel}
             valueYear={this.state.valueYear}
           />
-        </div>
-        <div className="col-md-9 bg-secondary overflow-auto" style={{height: '400px'}}>
+          </div>
+        <div className="result-frame">
           <ResultFrame
             isTableVisible = {this.state.isTableVisible}
             valueModel={this.state.searchModel}

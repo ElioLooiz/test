@@ -127,7 +127,7 @@ render() {
     let table: any;
     if(this.props.isTableVisible) {
         table = (
-        <table className="table table-hover table-dark w-100 overflow-auto">
+        <table>
           <thead>
             <tr>
               <th scope="col">Модель</th>
@@ -144,12 +144,12 @@ render() {
       if(this.props.isModal) {
         table = this.renderModal()
       } else {
-        table = <div className="w-100 h-100 text-center"><p className="h5">Заполните форму поиска</p></div>
+        table = <div><p className="h5">Заполните форму поиска</p></div>
       }
     }
 
     return(
-      <div className="w-100 h-100">
+      <div>
         {table}
       </div>
     )}
@@ -174,10 +174,11 @@ render() {
       }
 
       if(event.keyCode === 38) {
-        if(this.state.targetRow - 1 === this.state.numRows) {
+        if(this.state.targetRow - 1 < 0) {
           this.setState({targetRow: this.state.numRows});
+        } else {
+          this.setState({targetRow: this.state.targetRow - 1});
         }
-        this.setState({targetRow: this.state.targetRow - 1});
       }
 
       if(event.keyCode === 115) {

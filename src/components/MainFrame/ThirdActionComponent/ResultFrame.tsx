@@ -87,7 +87,7 @@ export class ResultFrame extends React.Component<MyProps,MyState> {
            let table: any;
            if(this.props.currentTarget[1] === -1) {
                table = (
-               <table className="table table-hover table-dark w-100 overflow-auto">
+               <table>
                  <thead>
                    <tr>
                      <th scope="col">Содержимое папки</th>
@@ -100,7 +100,7 @@ export class ResultFrame extends React.Component<MyProps,MyState> {
 
            }  else {
              table = (
-             <table className="table table-hover table-dark w-100 overflow-auto">
+             <table>
                <thead>
                  <tr>
                    <th scope="col">Модель</th>
@@ -116,7 +116,7 @@ export class ResultFrame extends React.Component<MyProps,MyState> {
            }
 
            return(
-             <div className="w-100 h-100">
+             <div>
                {table}
              </div>
            )}

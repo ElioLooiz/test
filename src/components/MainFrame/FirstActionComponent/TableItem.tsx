@@ -1,4 +1,5 @@
 import * as React from "react";
+var classNames = require('classnames');
 
 type MyProps = {
   key: string;
@@ -15,7 +16,9 @@ type MyProps = {
 export class TableItem extends React.Component<MyProps,{}> {
 
     render() {
-    const targeted :string = this.props.targeted ? ('bg-success') : (' ')
+      var targeted = classNames({
+        'table-target': this.props.targeted,
+      });
       console.log(this.props.index, 'index modal')
         return (
           <tr tabIndex = {0} className = {targeted}

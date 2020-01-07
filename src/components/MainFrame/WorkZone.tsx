@@ -3,27 +3,22 @@ import {FirstActionComponent} from './FirstActionComponent'
 import {SecondActionComponent} from './SecondActionComponent'
 import {ThirdActionComponent} from './ThirdActionComponent'
 
+import {Route} from 'react-router-dom';
+
+
 type MyProps = { buttons: boolean[]; };
 type MyState = { buttons: boolean[]; };
 
 export class WorkZone extends React.Component<MyProps,MyState> {
 
 render() {
-  const componentToRender: boolean[] = this.props.buttons
-  let renderComponent = <div className="text-white">Раздел в разработке</div>
-  if(componentToRender[0]) {
-    renderComponent = <div><FirstActionComponent/></div>
-  }
 
-  if(componentToRender[1]) {
-     renderComponent = <div><SecondActionComponent/></div>
-   }
-
-   if(componentToRender[2]) {
-     renderComponent = <div><ThirdActionComponent/></div>
-   }
 
   return (
-    <div>{renderComponent}</div>
+      <div className="fa-workzone">
+        <Route exact path="/first" component={FirstActionComponent} />
+        <Route exact path="/second" component={SecondActionComponent} />
+        <Route exact path="/third" component={ThirdActionComponent} />
+      </div>
   )}
 }

@@ -19,8 +19,8 @@ export class SearchFrame extends React.Component<MyProps,{}> {
 
     render() {
       return (
-        <div className="text-center">
-          <form onSubmit={this.props.onSubmit} >
+        <div className="form-container">
+          <form onSubmit={this.props.onSubmit} className="search-form">
             <label>
               <p className="">Введите модель:</p>
               <input ref={this.divRef} className="form-control" type="text" value={this.props.valueModel} onChange={this.props.onChangeModel} />
@@ -29,9 +29,9 @@ export class SearchFrame extends React.Component<MyProps,{}> {
               <p className="">Введите год выпуска:</p>
               <input className="form-control" type="text" value={this.props.valueYear} onChange={this.props.onChangeYear} />
             </label>
-            <input className="btn btn-light w-100" style={{margin:'10px 0px'}} type="submit" value="Поиск" />
+            <input className="form-button" type="submit" value="Поиск" />
           </form>
-          <button className="btn btn-light w-100" style={{margin:'10px 0px'}} onClick={this.props.onClick}>Очистить</button>
+          <button className="form-button" onClick={this.props.onClick}>Очистить</button>
         </div>
       );
     }

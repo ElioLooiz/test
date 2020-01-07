@@ -19,18 +19,16 @@ export class ThirdActionComponent extends React.Component<{},MyState> {
 
   render() {
       return (
-        <div className="row text-white">
-          <div  className="col-md-3" style={{height: '400px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+        <div className="fa-container">
+          <div  className="tree-frame">
             <TreeFrame
-
               currentTarget = {this.state.currentTarget}
               countFiles = {(folderIndex: number, i: number)  => this.countFiles(folderIndex, i)}
               onClick={(folderIndex: number, fileIndex: number) => this.handleClick(folderIndex, fileIndex)}
               onKeyDown={(event: React.KeyboardEvent<HTMLTableRowElement>, id: number) => this.handleKeys(event, id)}
             />
-
           </div>
-          <div className="col-md-9 bg-secondary overflow-auto" style={{height: '400px'}}>
+          <div className="result-frame-tree" >
           <ResultFrame
             currentTarget = {this.state.currentTarget}
           />

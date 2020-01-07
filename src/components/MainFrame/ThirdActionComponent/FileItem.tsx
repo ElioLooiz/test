@@ -1,4 +1,5 @@
 import * as React from "react";
+var classNames = require('classnames');
 
 type MyProps = {
   key: string;
@@ -16,16 +17,15 @@ type MyProps = {
 export class FileItem extends React.Component<MyProps,{}> {
 
 render() {
-
-    const targeted :string = this.props.targeted ? ('h5 bg-success') : ('h5')
-
+  var targeted = classNames({
+    'table-target': this.props.targeted,
+  });
     return (
     <div>
         <div tabIndex={0}
         onClick={() => this.props.onClick(this.props.folderIndex, this.props.index)}
         onKeyDown={(event: any) => this.props.onKeyDown(event, this.props.folderIndex)}
         >
-        {console.log(this.props.folderIndex + ' on key')}
             <li className={targeted}>
             {this.props.model}
             </li>

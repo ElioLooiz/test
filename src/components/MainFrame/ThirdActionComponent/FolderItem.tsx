@@ -1,5 +1,6 @@
 import * as React from "react";
 import {FileItem} from './FileItem'
+var classNames = require('classnames');
 
 type MyProps = {
   key: string;
@@ -108,11 +109,13 @@ export class FolderItem extends React.Component<MyProps,MyState> {
    }
 
 render() {
-  const targeted :string = this.props.targeted ? ('h5 bg-success') : ('h5')
+  var targeted = classNames({
+    'table-target': this.props.targeted,
+  });
   return (
     <div>
-        <hr className="bg-white"/>
-        <div>
+        <hr/>
+        <div className="folder">
             <p className={targeted}
               ref={this.divRef}
               tabIndex={0}
@@ -123,7 +126,7 @@ render() {
             </p>
             {this.renderProducts()}
         </div>
-        <hr className="bg-white"/>
+        <hr/>
     </div>
     )
   }

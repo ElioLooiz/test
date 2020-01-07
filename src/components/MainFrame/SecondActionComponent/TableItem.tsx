@@ -1,4 +1,5 @@
 import * as React from "react";
+var classNames = require('classnames');
 
 type MyProps = {
   key: string;
@@ -24,24 +25,26 @@ export class TableItem extends React.Component<MyProps,{}> {
   }
 
   render() {
-  const targeted = this.props.targeted ? ('bg-success p-1') : ('p-1')
-    console.log(this.props.index, 'index modal')
+    var targeted = classNames({
+      tableitem: true,
+      'table-target': this.props.targeted,
+    });
       return (
       <div>
-          <hr className="bg-white"/>
+          <hr/>
           <div tabIndex={0} className={targeted}
           onClick={() => this.props.onClick(this.props.index)}
           onKeyDown={(event: any) => this.props.onKeyDown(event, this.props.index)}
           onDoubleClick={() => this.props.onKeyDown("double", this.props.index)}
            ref={this.divRef}>
-              <p className="h4">
+              <p>
               {this.props.task}
               </p>
-              <p className="h5">
+              <p>
               {this.props.desc}
               </p>
           </div>
-          <hr className="bg-white"/>
+          <hr/>
       </div>
       )
     }
